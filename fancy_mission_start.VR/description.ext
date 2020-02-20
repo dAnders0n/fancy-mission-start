@@ -1,0 +1,26 @@
+/* Mission information */
+class Header
+{
+	gameType   =  COOP; // Game type
+	minPlayers =  1;    // minimum number of players the mission supports
+	maxPlayers = 2;    // maximum number of players the mission supports
+};
+
+/* onLoadName */
+author			= "D.Anderson";
+OnLoadName		= "Operacja Loose Ends";
+OnLoadMission	= "I played X3:Albion Prelude and Terrans had Operation Loose Ends.";
+//loadScreen		= "resources\loadScreen.paa";
+
+/* respawn */
+respawn = 3; /* 0 - NONE # 1 - BIRD # 3 - BASE # 4 - GROUP # 5 - SIDE */
+respawnDelay = 7200;
+respawnTemplates[] = {"ace_spectator"};
+
+/* Mission settings */
+aiKills = 0;
+disabledAI = 1;
+enableDebugConsole = 1; 
+
+#include "defines.hpp"
+#include "dialogs.hpp"
