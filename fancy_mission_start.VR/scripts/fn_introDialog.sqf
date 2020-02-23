@@ -5,17 +5,20 @@
  *		to make mission start bit more dramatic for not good reason.
  *	Parametr(s):
  *		0 - _unit: <Object> - must by player.
- *		1 - _image: <String> - patch to image.
- *		2 - _customText: <String> - Custom text displayed on botton.
+ *		1 - _time: <Number> - startup time.
+ *		2 - _image: <String> - patch to image.
+ *		3 - _customText: <String> - Custom text displayed on botton.
  */
 
 disableSerialization;
 
 _unit = param[0];
-_image = param[1];
-_customText = param[2];
+_time = param[1];
+_image = param[2];
+_customText = param[3];
 
-sleep 0.25;
+["BlackAndWhite", 0.25, false] call BIS_fnc_setPPeffectTemplate;
+sleep 0.5;
 createDialog "dAn_Intro_Dialog";
 
 waitUntil {!isNull (findDisplay 9001)};
@@ -30,7 +33,7 @@ _unitGroup = groupId (group _unit);
 /****************************************************************/
 
 hint "Mission is in Startup\nPlayer Simulation: Disabled\nPlease Wait...";
-["BlackAndWhite", 0.25, false] call BIS_fnc_setPPeffectTemplate;
+
 _unit enableSimulation false;
 
 /* 
@@ -46,7 +49,7 @@ ctrlSetText[1200, _image];
  *	Mission/Operation Name
  */
 _ctrl = (findDisplay 9001) displayCtrl 1100;
-_str = ['<t size="2.0"><t align="center">',_missionName, '</t></t>'] joinString "";
+_str = ['<t size="2.0"><t align="center"><t valign="middle">',_missionName, '</t></t></t>'] joinString "";
 _ctrl ctrlSetStructuredText parseText _str;
 _ctrl ctrlSetFontH1 "PuristaSemibold";
 /****************************************************************/
@@ -81,7 +84,17 @@ _ctrl = (findDisplay 9001) displayCtrl 1103;
 
 _roleDescArray = _roleDesc splitString "@";
 _slotName = (_roleDescArray select 0) splitString ":";
-_str = ["Slot:", _slotName select 1] joinString "";
+
+	_count = count _slotName;
+	if (_count > 1) then
+	{
+		_str = ["Slot: ", _slotName select 1] joinString "";
+	}
+	else
+	{
+		_str = ["Slot:", _slotName select 0] joinString " ";
+	};
+	
 _ctrl ctrlSetStructuredText parseText _str;
 _ctrl ctrlSetFontH1 "PuristaSemibold";
 /****************************************************************/
@@ -112,7 +125,7 @@ _ctrl ctrlSetFontH1 "PuristaSemibold";
  *	Post Proccesing Control
  */
 
-sleep 18.75;
+sleep _time;
  
 _array = [1200, 1100, 1101, 1102, 1103, 1104, 1105];
 
