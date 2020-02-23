@@ -807,7 +807,7 @@ class Mission
 					flags=5;
 					class Attributes
 					{
-						description="2: Inny Strzelec";
+						description="Inny Strzelec";
 						isPlayable=1;
 					};
 					id=2;
