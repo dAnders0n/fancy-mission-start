@@ -32,7 +32,7 @@ _unitGroup = groupId (group _unit);
 
 /****************************************************************/
 
-hint "Mission is in Startup\nPlayer Simulation: Disabled\nPlease Wait...";
+[_time] execVM "scripts\fn_introDialogCD.sqf";
 
 _unit enableSimulation false;
 
@@ -136,8 +136,8 @@ _array = [1200, 1100, 1101, 1102, 1103, 1104, 1105];
 	_ctrl ctrlCommit 7;
 }forEach _array;
 
-sleep 7.25;
-hint "Mission Starup Completed\n Player Simulation: Enabled\n Good Luck!";
+sleep 7;
+hint parseText "Mission Starup Completed<br /> Player Simulation: <t color='#ff0000'>Enabled</t><br /> Good Luck!";
 sleep 0.5;
 _unit enableSimulation true;
 closeDialog 1;

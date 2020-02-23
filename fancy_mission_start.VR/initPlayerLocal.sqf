@@ -15,7 +15,7 @@ removeGoggles _unit;
 
 [
 	_unit, 													/* just leave it be mate */
-	20,														/* starup time */
+	23,														/* starup time */
 	"picture.paa", 											/* path to image */
 	"Howdy matey! Welcome in this Cluster-Fucked mission!"	/* custom text */
 ] execVM "scripts\fn_introDialog.sqf";
