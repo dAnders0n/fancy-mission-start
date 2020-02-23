@@ -49,7 +49,7 @@ ctrlSetText[1200, _image];
  *	Mission/Operation Name
  */
 _ctrl = (findDisplay 9001) displayCtrl 1100;
-_str = ['<t size="2.0"><t align="center"><t valign="middle">',_missionName, '</t></t></t>'] joinString "";
+_str = ['<t size="2.0" align="center" valign="middle">',_missionName, '</t>'] joinString "";
 _ctrl ctrlSetStructuredText parseText _str;
 _ctrl ctrlSetFontH1 "PuristaSemibold";
 /****************************************************************/
@@ -60,7 +60,7 @@ _ctrl ctrlSetFontH1 "PuristaSemibold";
  */
 _ctrl = (findDisplay 9001) displayCtrl 1101;
 
-_str = ["Lokalizacja:",_terrain] joinString " ";
+_str = ['<t valign="middle">Lokalizacja:',_terrain, '</t>'] joinString " ";
 _ctrl ctrlSetStructuredText parseText _str;
 _ctrl ctrlSetFontH1 "PuristaSemibold";
 /****************************************************************/
@@ -71,7 +71,7 @@ _ctrl ctrlSetFontH1 "PuristaSemibold";
  */
 _ctrl = (findDisplay 9001) displayCtrl 1102;
 
-_str = ["by",_author] joinString " ";
+_str = ['<t valign="middle">by', _author, '</t>'] joinString " ";
 _ctrl ctrlSetStructuredText parseText _str;
 _ctrl ctrlSetFontH1 "PuristaSemibold";
 /****************************************************************/
@@ -88,11 +88,11 @@ _slotName = (_roleDescArray select 0) splitString ":";
 	_count = count _slotName;
 	if (_count > 1) then
 	{
-		_str = ["Slot: ", _slotName select 1] joinString "";
+		_str = ['<t valign="middle">Slot:', _slotName select 1, '</t>'] joinString "";
 	}
 	else
 	{
-		_str = ["Slot:", _slotName select 0] joinString " ";
+		_str = ['<t valign="middle">Slot:', _slotName select 0, '</t>'] joinString " ";
 	};
 	
 _ctrl ctrlSetStructuredText parseText _str;
@@ -105,7 +105,7 @@ _ctrl ctrlSetFontH1 "PuristaSemibold";
  */
 _ctrl = (findDisplay 9001) displayCtrl 1104;
 
-_str = ["Przydział:", _unitGroup] joinString " ";
+_str = ['<t valign="middle">Przydział:', _unitGroup, '</t>'] joinString " ";
 _ctrl ctrlSetStructuredText parseText _str;
 _ctrl ctrlSetFontH1 "PuristaSemibold";
 /****************************************************************/
@@ -116,7 +116,7 @@ _ctrl ctrlSetFontH1 "PuristaSemibold";
  */
 _ctrl = (findDisplay 9001) displayCtrl 1105;
 
-_str = ['<t align="center">',_customText, '</t>'] joinString "";
+_str = ['<t align="center" valign="middle">',_customText, '</t>'] joinString "";
 _ctrl ctrlSetStructuredText parseText _str;
 _ctrl ctrlSetFontH1 "PuristaSemibold";
 /****************************************************************/
